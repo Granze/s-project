@@ -4,16 +4,16 @@ sp.controller('EventsCtrl', ['$scope', 'Geoloc', 'Event', function($scope, Geolo
 
   google.maps.visualRefresh = true;
 
-  if (navigator.geolocation) {
-    Geoloc.getPosition().then(function(pos){
-      var latitude = pos.coords.latitude,
-          longitude = pos.coords.longitude;
+  // if (navigator.geolocation) {
+  //   Geoloc.getPosition().then(function(pos){
+  //     var latitude = pos.coords.latitude,
+  //         longitude = pos.coords.longitude;
 
-      $scope.map.center = {latitude: latitude, longitude: longitude};
-    });
-  } else {
-    alert('Geolocation isn\'t supported');
-  };
+  //     $scope.map.center = {latitude: latitude, longitude: longitude};
+  //   });
+  // } else {
+  //   alert('Geolocation isn\'t supported');
+  // };
 
   $scope.map = {
     center: {
@@ -28,7 +28,8 @@ sp.controller('EventsCtrl', ['$scope', 'Geoloc', 'Event', function($scope, Geolo
       streetViewControl: false,
       mapTypeControl: false
     },
-    bounds: {}
+    bounds: {},
+    markers: []
   };
 
   $scope.findLocation = function() {
@@ -55,7 +56,9 @@ sp.controller('EventsCtrl', ['$scope', 'Geoloc', 'Event', function($scope, Geolo
   $scope.events = Event.query();
 
   $scope.events.then(function (results) {
-    console.log(results);
+    angular.forEach(results, function (key, value){
+      $scope.map.markers.push(key, value);
+    });
   }, function (error) {
     console.log('error');
   });
