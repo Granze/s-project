@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     angularjs-rails (1.2.20)
+    angularjs-rails-resource (1.1.1)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (2.1.1.20140710)
       execjs
@@ -115,6 +116,7 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
+  angularjs-rails-resource (~> 1.1.1)
   autoprefixer-rails
   haml
   haml-rails

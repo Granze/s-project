@@ -1,6 +1,6 @@
 'use strict';
 
-sp.controller('EventsCtrl', ['$scope', 'Geoloc', function($scope, Geoloc){
+sp.controller('EventsCtrl', ['$scope', 'Geoloc', 'Event', function($scope, Geoloc, Event){
 
   google.maps.visualRefresh = true;
 
@@ -52,7 +52,12 @@ sp.controller('EventsCtrl', ['$scope', 'Geoloc', function($scope, Geoloc){
     });
   };
 
-  $scope.eventCreate = function(event) {
-  };
+  $scope.events = Event.query();
+
+  $scope.events.then(function (results) {
+    console.log(results);
+  }, function (error) {
+    console.log('error');
+  });
 
 }]);

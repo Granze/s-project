@@ -12,7 +12,9 @@
 //
 //= require lodash
 //= require angular
+//= require angular-animate
 //= require angular-google-maps.min
+//= require angularjs/rails/resource
 //= require main
 //= require_directory ./directives
 //= require_directory ./services
