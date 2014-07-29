@@ -1,5 +1,5 @@
 #events-list(ng-controller="EventsCtrl")
-  %h1 The S Project
-  %google-map(center="map.center" zoom="map.zoom")
+  %google-map(center="map.center" zoom="map.zoom" draggable="true" options="map.options")
+    %markers(models="map.markers" coords="'self'" icon="'icon'" click="'onClicked'")
 
 

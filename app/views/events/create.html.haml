@@ -1,1 +1,35 @@
-%h1 create
+#event-create(ng-controller="EventsCtrl")
+  %p(ng-show="eventCreated" class="alert alert-success") Event created!
+
+  %form(ng-submit="eventCreate(event)" ng-hide="eventCreated")
+    %h2 Create an event:
+
+    %div
+      %label(for="event-name") Name
+      %input(type="text" ng-model="event.name" id="event-name" placeholder="Name" autofocus)
+
+    %div
+      %label(for="event-description") Description
+      %textarea(rows="5" ng-model="event.description" id="event-description" placeholder="Enter a description")
+
+    %div
+      %label(for="event-location") Where
+      %input(ng-enter="findLocation()" type="search" ng-model="event.location" id="event-location" placeholder="Enter a location and press Enter")
+
+    %p(ng-show="notFound" class="alert alert-danger") Sorry, I was unable to find this place. Try again.
+    %google-map(center="map.center" zoom="map.zoom" draggable="true" options="map.options")
+
+    %div
+      %label(for="event-date") When
+      %input(type="date" ng-model="event.date" class="form-control inline" id="event-date")
+
+    %div
+      %label(for="event-time") From
+      %select(id="event-time" ng-model="event.time" ng-options="o for o in timeList")
+
+    %div
+      %input(type="hidden" ng-model="event.coords")
+      %input(type="submit" class="btn btn-primary" value="Create the event")
+
+    %p(style="margin-top: 30px;") Debug:
+    %pre {{event | json}}

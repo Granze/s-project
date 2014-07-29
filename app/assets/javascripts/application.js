@@ -14,4 +14,6 @@
 //= require angular
 //= require angular-google-maps.min
 //= require main
-//= require controllers/EventsCtrl
+//= require_directory ./directives
+//= require_directory ./services
+//= require_directory ./controllers
