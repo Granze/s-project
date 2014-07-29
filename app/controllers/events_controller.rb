@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
-  def list
+  def index
+    # render json: Event.first
+    render json: {result: :ok}
   end
 
   def create
