@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  root 'events#index'
   resources :events
+  resources :users
+
+  root 'events#index'
+
+  get 'create', to: 'events#create'
+
 end

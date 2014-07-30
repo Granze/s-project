@@ -1,5 +1,5 @@
 #event-create(ng-controller="EventsCtrl")
-  %p(ng-show="eventCreated" class="alert alert-success") Event created!
+  %p(ng-show="eventCreated") Event created!
 
   %form(ng-submit="eventCreate(event)" ng-hide="eventCreated")
     %h2 Create an event:
@@ -16,8 +16,9 @@
       %label(for="event-location") Where
       %input(ng-enter="findLocation()" type="search" ng-model="event.location" id="event-location" placeholder="Enter a location and press Enter")
 
-    %p(ng-show="notFound" class="alert alert-danger") Sorry, I was unable to find this place. Try again.
+    %p(ng-show="notFound") Sorry, I was unable to find this place. Try again.
     %google-map(center="map.center" zoom="map.zoom" draggable="true" options="map.options")
+      %marker(coords="searchLocationMarker.coords" options="searchLocationMarker.options" events="searchLocationMarker.events")
 
     %div
       %label(for="event-date") When
