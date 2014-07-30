@@ -2,35 +2,36 @@
   %p(ng-show="eventCreated") Event created!
 
   %form(ng-submit="eventCreate(event)" ng-hide="eventCreated")
-    %h2 Create an event:
 
-    %div
-      %label(for="event-name") Name
+    .form-group
+      %label(for="event-name") Event name
       %input(type="text" ng-model="event.name" id="event-name" placeholder="Name" autofocus)
 
-    %div
+    .form-group
       %label(for="event-description") Description
       %textarea(rows="5" ng-model="event.description" id="event-description" placeholder="Enter a description")
 
-    %div
+    .form-group
       %label(for="event-location") Where
       %input(ng-enter="findLocation()" type="search" ng-model="event.location" id="event-location" placeholder="Enter a location and press Enter")
 
-    %p(ng-show="notFound") Sorry, I was unable to find this place. Try again.
-    %google-map(center="map.center" zoom="map.zoom" draggable="true" options="map.options")
-      %marker(coords="searchLocationMarker.coords" options="searchLocationMarker.options" events="searchLocationMarker.events")
+    .form-group
+      %p(ng-show="notFound") Sorry, I was unable to find this place. Try again.
+      %google-map(center="map.center" zoom="map.zoom" draggable="true" options="map.options")
+        %marker(coords="searchLocationMarker.coords" options="searchLocationMarker.options" events="searchLocationMarker.events")
 
-    %div
+    .form-group
       %label(for="event-date") When
-      %input(type="date" ng-model="event.date" class="form-control inline" id="event-date")
+      %input(type="date" ng-model="event.date" id="event-date")
 
-    %div
+    .form-group
       %label(for="event-time") From
       %select(id="event-time" ng-model="event.time" ng-options="o for o in timeList")
 
-    %div
+    .form-group
       %input(type="hidden" ng-model="event.coords")
-      %input(type="submit" class="btn btn-primary" value="Create the event")
+      %input(type="submit" class="event-submit" value="Create the event")
 
-    %p(style="margin-top: 30px;") Debug:
-    %pre {{event | json}}
+    .form-group
+      %p(style="margin-top: 30px;") Debug:
+      %pre {{event | json}}

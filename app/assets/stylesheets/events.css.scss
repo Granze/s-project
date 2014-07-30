@@ -1,3 +1,7 @@
+//variables
+
+$blue: #428bca;
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -60,10 +64,6 @@ h1 {
   }
 }
 
-#event-create {
-  padding: 20px;
-}
-
 .angular-google-map-container {
   #events-list & {
     position: absolute;
@@ -78,3 +78,37 @@ h1 {
     height: 300px;
   }
 }
+
+#event-create {
+  padding: 20px;
+  font-size: 24px;
+  label {
+    display: block;
+    margin: 8px 0;
+  }
+
+  input[type=text],
+  input[type=search],
+  input[type=date],
+  textarea {
+    width: 100%;
+    padding: 6px 2px;
+    border: 1px solid #777;
+    border-radius: 4px;
+  }
+  .event-submit {
+    width: 100%;
+    padding: 20px;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid darken($blue, 10);
+    border-radius: 4px;
+    background-color: $blue;
+  }
+}
+
+.form-group {
+  width: 50%;
+  margin: 18px auto;
+}
+

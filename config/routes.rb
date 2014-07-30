@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
-  get 'create', to: 'events#create'
+  get 'new', to: 'events#new'
 
 end
