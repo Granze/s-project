@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @events = set_event
   end
 
   # GET /events/new
@@ -30,11 +31,10 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        #render html: @event, status: :created, location: @event
+        format.html redirect_to @event
       else
         format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
