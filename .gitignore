@@ -30,6 +30,7 @@ config/secrets.yml
 /.bundle
 /vendor/bundle
 
-# Sublime config
+# Editor config
 s-rpoject.sublime-project
 s-rpoject.sublime-workspace
+.idea/
