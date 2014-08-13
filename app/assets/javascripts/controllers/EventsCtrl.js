@@ -83,8 +83,8 @@ sp.controller('EventsCtrl', ['$scope', 'Geoloc', 'Event', '$log', function ($sco
 
   $scope.eventCreate = function (data) {
     new Event({
-      from_date: Date.parse(data.date + " " + data.time + ":00"),
-      to_date: Date.parse(data.date + " " + data.time + ":00"),
+      from_date: data.date + " " + data.time + ":00",
+      to_date: data.date + " " + data.time + ":00",
       title: data.title,
       description: data.description,
       latitude: data.coords[0],
