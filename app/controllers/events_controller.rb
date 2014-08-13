@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html render :show
+        format.html redirect_to @event
       else
         format.html render :new
       end
