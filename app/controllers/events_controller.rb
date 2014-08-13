@@ -31,12 +31,12 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        #render html: @event, status: :created, location: @event
-        format.html redirect_to @event
+        format.html render :show
       else
-        format.html { render :new }
+        format.html render :new
       end
     end
+
   end
 
   # PATCH/PUT /events/1
@@ -71,6 +71,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:from_date, :to_date, :title, :description, :latitude, :longitude, :user_id)
+      params.require(:event).permit(:from_date, :to_date, :style, :description, :latitude, :longitude, :user_id)
     end
   end

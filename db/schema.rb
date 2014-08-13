@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726171338) do
+ActiveRecord::Schema.define(version: 20140813093244) do
 
   create_table "events", force: true do |t|
     t.datetime "from_date"
     t.datetime "to_date"
-    t.string   "title"
+    t.string   "style"
     t.text     "description"
     t.decimal  "latitude",    precision: 15, scale: 10, default: 0.0
     t.decimal  "longitude",   precision: 15, scale: 10, default: 0.0

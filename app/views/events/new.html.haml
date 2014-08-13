@@ -3,17 +3,10 @@
 
   %form(ng-submit="eventCreate(event)" ng-hide="eventCreated")
 
-    .form-group
-      %label(for="event-title") Event name
-      %input(type="text" ng-model="event.title" id="event-title" placeholder="Name" autofocus)
-
-    .form-group
-      %label(for="event-description") Description
-      %textarea(rows="5" ng-model="event.description" id="event-description" placeholder="Enter a description")
 
     .form-group
       %label(for="event-location") Where
-      %input(ng-enter="findLocation()" type="search" ng-model="event.location" id="event-location" placeholder="Enter a location and press Enter")
+      %input#event-location(ng-enter="findLocation()" type="search" ng-model="event.location" placeholder="Enter a location and press Enter")
 
     .form-group
       %p(ng-show="notFound") Sorry, I was unable to find this place. Try again.
@@ -22,11 +15,24 @@
 
     .form-group
       %label(for="event-date") When
-      %input(type="date" ng-model="event.date" id="event-date")
+      %input#event-date(type="date" ng-model="event.date")
 
     .form-group
       %label(for="event-time") From
-      %select(id="event-time" ng-model="event.time" ng-options="o for o in timeList")
+      %select#event-time(ng-model="event.time" ng-options="o for o in timeList")
+
+    .form-group
+      %label(for="event-style") Slackline style
+      %select#event-style(ng-model="event.style")
+        %option(value="Trickline" selected) Trickline
+        %option(value="Highline") Highline
+        %option(value="Waterline") Waterline
+
+    .form-group
+      %label(for="event-description")
+        %a(href ng-click="showDescriptionTextarea = !showDescriptionTextarea") + Add a description?
+        (optional)
+      %textarea#event-description(rows="5" ng-show="showDescriptionTextarea" ng-model="event.description" placeholder="Enter a description")
 
     .form-group
       %input(type="hidden" ng-model="event.coords")
