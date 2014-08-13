@@ -5,7 +5,6 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json  { render json: @events }
-      format.js
     end
   end
 
@@ -13,6 +12,11 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @events = set_event
+
+    respond_to do |format|
+      format.html
+      format.json  { render json: @events }
+    end
   end
 
   # GET /events/new
@@ -31,7 +35,8 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html redirect_to @event
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.json { redirect_to @event }
       else
         format.html render :new
       end
